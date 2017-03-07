@@ -1,6 +1,5 @@
 <template>
     <div class="picker-box">
-        <div class="mask" @click="hideTimePicker"></div>
         <div class="picker-box-c">
             <div class="picker-header">
                 <div class="picker-prev" @click="preMon"> << </div>
@@ -210,8 +209,7 @@
                 return result.getFullYear() + "-" + (result.getMonth() + 1) + "-" + result.getDate();
             },
             confimDate () {
-                this.$store.dispatch('showTimePicker', false)
-                this.$emit('confirm', this.startEnv, this.endEnv)
+                alert('时间段：'+this.starEnv+'--'+this.endEnv)
             },
             //比较两日期的大小
             dateCompare (date1, date2) {
@@ -280,13 +278,7 @@
                         return false;
                     }
                 }
-            },
-            hideTimePicker () {
-                this.$store.dispatch('showTimePicker', false)
             }
-        },
-        computed: {
-            
         }
     }
 </script>
