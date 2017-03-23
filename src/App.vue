@@ -1,6 +1,8 @@
 <template>
   <div id="app">
-    <date-time-picker></date-time-picker>
+    <input @click="showTimePicker" v-model="beginTime" type="text" placeholder="开始日期" readonly>
+    <input type="text" v-model="endTime" placeholder="结束日期" readonly>
+    <date-time-picker v-show="showPicker" @confirm="confirm" @hide-time-picker="hideTimePicker"></date-time-picker>
   </div>
 </template>
 
@@ -11,6 +13,22 @@ export default {
   name: 'app',
   components: {
     dateTimePicker
+  },
+  data() {
+    showPicker: false
+  },
+  methods() {
+    showTimePicker() {
+      this.showPicker = true
+    },
+    hideTimePicker() {
+      this.showPicker = false
+    }
+    confirm(startDate, endDate) {
+      this.beginTime = startDate
+      this.endTime = endDate
+      this.showPicker = false
+    },
   }
 }
 </script>

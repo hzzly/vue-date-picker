@@ -1,5 +1,6 @@
 <template>
     <div class="picker-box">
+        <div class="mask" @click="hideTimePicker"></div>
         <div class="picker-box-c">
             <div class="picker-header">
                 <div class="picker-prev" @click="preMon"> << </div>
@@ -134,7 +135,7 @@
                 this.createCalendar(this.year, this.month);
             },
             nextMon () {
-                 this.month += 1;
+                this.month += 1;
                 if (this.month > 12) {
                     this.year = parseInt(this.year) + 1;
                     this.month = 1;
@@ -209,7 +210,8 @@
                 return result.getFullYear() + "-" + (result.getMonth() + 1) + "-" + result.getDate();
             },
             confimDate () {
-                alert('时间段：'+this.starEnv+'--'+this.endEnv)
+                this.$emit('showTimePicker')
+                this.$emit('confirm', this.startEnv, this.endEnv)
             },
             //比较两日期的大小
             dateCompare (date1, date2) {
@@ -278,15 +280,19 @@
                         return false;
                     }
                 }
+            },
+            hideTimePicker () {
+                this.$emit('hideTimePicker')
             }
+        },
+        computed: {
+            
         }
     }
 </script>
 
 <style lang="scss" scoped>
-@function px2rem($px, $base-font-size: 75px) {
-  @return ($px / $base-font-size) * 1rem;
-}
+@import '../assets/css/function';
 
 .picker-box {
     z-index: 100;
@@ -420,14 +426,14 @@
     }
     .mask {
         position: fixed;
-	    width: 100%;
-	    margin: 0 auto;
-	    top: 0;
-	    left: 0;
-	    bottom: 0;
-	    right: 0;
-	    z-index: 1001;
-	    background: rgba(0,0,0,.6);
+        width: 100%;
+        margin: 0 auto;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        z-index: 1001;
+        background: rgba(0,0,0,.6);
     }
 }
 </style>
