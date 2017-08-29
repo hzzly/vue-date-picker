@@ -1,7 +1,7 @@
-# vue-datetime-picker
-a vue datetime picker component
+# vue-date-picker
+a vue date picker component
 
-日期时间段选择 [传送门](http://hjingren.cn/mydemo/datepickerv2/dist/)
+日期时间段选择
 
 ![date-pic](https://github.com/hzzly/vue-datetime-picker/blob/master/src/assets/date-pic.png) 
 
