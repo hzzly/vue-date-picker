@@ -2,17 +2,17 @@
   <div id="app">
     <input @click="showTimePicker" v-model="beginTime" type="text" placeholder="开始日期" readonly>
     <input type="text" v-model="endTime" placeholder="结束日期" readonly>
-    <date-time-picker v-show="showPicker" @confirm="confirm" @hide-time-picker="hideTimePicker"></date-time-picker>
+    <date-picker v-show="showPicker" @confirm="confirm" @hide-time-picker="hideTimePicker"></date-picker>
   </div>
 </template>
 
 <script>
-import dateTimePicker from './components/dateTimePicker'
+import datePicker from './components/datePicker'
 
 export default {
   name: 'app',
   components: {
-    dateTimePicker
+    datePicker
   },
   data() {
     showPicker: false
