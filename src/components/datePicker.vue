@@ -1,6 +1,6 @@
 <template>
     <div class="picker-box">
-        <div class="mask" @click="hideTimePicker"></div>
+        <div class="mask" @click="hideDatePicker"></div>
         <div class="picker-box-c">
             <div class="picker-header">
                 <div class="picker-prev" @click="preMon"> << </div>
@@ -281,8 +281,8 @@
                     }
                 }
             },
-            hideTimePicker () {
-                this.$emit('hideTimePicker')
+            hideDatePicker () {
+                this.$emit('hideDatePicker')
             }
         },
         computed: {

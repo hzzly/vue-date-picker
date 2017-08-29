@@ -1,8 +1,8 @@
 <template>
   <div id="app">
-    <input @click="showTimePicker" v-model="beginTime" type="text" placeholder="开始日期" readonly>
+    <input @click="showDatePicker" v-model="beginTime" type="text" placeholder="开始日期" readonly>
     <input type="text" v-model="endTime" placeholder="结束日期" readonly>
-    <date-picker v-show="showPicker" @confirm="confirm" @hide-time-picker="hideTimePicker"></date-picker>
+    <date-picker v-show="showPicker" @confirm="confirm" @hide-time-picker="hideDatePicker"></date-picker>
   </div>
 </template>
 
@@ -18,10 +18,10 @@ export default {
     showPicker: false
   },
   methods() {
-    showTimePicker() {
+    showDatePicker() {
       this.showPicker = true
     },
-    hideTimePicker() {
+    hideDatePicker() {
       this.showPicker = false
     }
     confirm(startDate, endDate) {
